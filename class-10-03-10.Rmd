@@ -1,0 +1,30 @@
+---
+title: "class-2019-03-10"
+author: "Carine Hajjar"
+date: "10/3/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(googlesheets4)
+library(tidyverse)
+```
+
+```{r}
+ sheets_deauth()
+x <- read_sheet("https://docs.google.com/spreadsheets/d/1LtupNx8yBeJzK6UyGkZ5u-aUAPzU90K9C4r2RTJwWqg/edit#gid=2132522624")
+  
+x %>%
+  select(Student)%>%
+  sample_n(1)
+
+my_cold_call<- function(){
+x <- read_sheet("https://docs.google.com/spreadsheets/d/1LtupNx8yBeJzK6UyGkZ5u-aUAPzU90K9C4r2RTJwWqg/edit#gid=2132522624") %>%
+  select(Student)%>%
+  sample_n(1)%>%
+  pull(Student)
+}
+```
+
